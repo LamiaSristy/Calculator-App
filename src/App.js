@@ -5,8 +5,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />   
-        <p> Milestone 1 for Calculator app.</p>       
+        <img src={logo} className="App-logo" alt="logo" />
+        <p> Milestone 1 for Calculator app.</p>
       </header>
     </div>
   );
