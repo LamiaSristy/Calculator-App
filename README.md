@@ -2,10 +2,15 @@
 
 This project is a calculator, developed using React.
 
-## Build-With
+## `Build-With`
 
 - React
 - VScode
+
+## Live-Demo
+
+[Calc-App](https://calc-lamia-sristy.herokuapp.com/)
+
 
 ## Getting Started
 
@@ -26,7 +31,7 @@ It correctly bundles app in production mode and optimizes the build for the best
 
 
 
-### Prerequisites
+### `Prerequisites`
 
 To get this project up and running locally, "yarn install" is needed to be run in order to include all dependencies used for this project.
 
