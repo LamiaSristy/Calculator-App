@@ -1,58 +1,58 @@
 import operate from './operate';
 
-const calculate = (data, buttonName) => {
-  const { total, next, operation } = data;
-  const resultData = data;
+const calculate = (dataObj, buttonName) => {
+  const { total, next, operation } = dataObj;
+  const result = dataObj;
 
   if (buttonName === '+/-') {
     if (total && !next) {
-      resultData.total = total * -1;
+      result.total = total * -1;
     }
     if (next) {
-      resultData.next = next * -1;
-    }
-  }
-
-  if (buttonName === '%') {
-    if (total && !next) {
-      resultData.total = operate(total, 100, '%');
-    }
-    if (next) {
-      resultData.next = operate(next, 100, '%');
+      result.next = next * -1;
     }
   }
 
   if (buttonName === '.') {
     if (!total && !next) {
-      resultData.total = '0.';
+      result.total = '0.';
     }
     if (total && !next && total.indexOf('.') === -1) {
-      resultData.total = `${total}.`;
+      result.total = `${total}.`;
     }
     if (next && next.indexOf('.') === -1) {
-      resultData.next = `${next}.`;
+      result.next = `${next}.`;
     }
   }
 
+  if (buttonName === '%') {
+    if (total && !next) {
+      result.total = operate(total, 100, '%');
+    }
+    if (next) {
+      result.next = operate(next, 100, '%');
+    }
+  }
+
+  if (total && !next) {
+    result.operation = buttonName;
+  }
+
   if (buttonName === 'AC') {
-    resultData.total = '';
-    resultData.next = '';
-    resultData.operation = '';
+    result.total = '';
+    result.next = '';
+    result.operation = '';
   }
 
   if (['+', 'X', '-', '÷', '='].includes(buttonName)) {
     if (total && next && operation) {
-      const newOperation = buttonName === '=' ? '' : buttonName;
-      resultData.total = operate(total, next, operation);
-      resultData.operation = newOperation;
-    }
-
-    if (total && !next) {
-      resultData.operation = buttonName;
+      const calcOperation = buttonName === '=' ? '' : buttonName;
+      result.total = operate(total, next, operation);
+      result.operation = calcOperation;
     }
   }
 
-  return resultData;
+  return result;
 };
 
 export default calculate;

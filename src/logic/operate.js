@@ -7,27 +7,25 @@ const operate = (numberOne, numberTwo, operation) => {
     const num2 = Big(+numberTwo);
 
     if (operation === '+') {
-        result = Big(num1.plus(num2));
+      result = Big(num1.plus(num2));
     }
 
     if (operation === '-') {
-        result = Big(num1.minus(num2));
+      result = Big(num1.minus(num2));
     }
 
     if (operation === 'X') {
-        result = Big(num1.times(num2));
+      result = Big(num1.times(num2));
     }
 
     if (operation === '÷') {
       result = Big(num1.div(num2));
-    }    
+    }
 
     if (operation === '%') {
       result = Big(num1.div(num2));
-    }    
-  } 
-  
-  catch (error) {
+    }
+  } catch (error) {
     result = NaN;
   }
 
