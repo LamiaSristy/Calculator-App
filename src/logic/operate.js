@@ -23,7 +23,7 @@ const operate = (numberOne, numberTwo, operation) => {
     }
 
     if (operation === '%') {
-      result = Big(num1.div(num2));
+      result = Big(num1.div(100));
     }
   } catch (error) {
     result = NaN;
