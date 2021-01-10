@@ -1,6 +1,6 @@
 import Big from 'big.js';
 
-const operator = (numberOne, numberTwo, operation) => {
+const operate = (numberOne, numberTwo, operation) => {
   let result;
   try {
     const num1 = Big(+numberOne);
@@ -34,4 +34,4 @@ const operator = (numberOne, numberTwo, operation) => {
   return result.toPrecision();
 };
 
-export default operator;
+export default operate;
