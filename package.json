@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "big.js": "^6.0.3",
+    "bootstrap": "^4.5.3",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -17,7 +18,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "eslint": "eslint .",
+    "stylelint": "stylelint \"**/*.{css, scss}\"",
+    "fix": "stylelint --fix \"**/*.{css, scss}\" && eslint . --fix",
+    "linters": "npm run fix && npm run stylelint && npm run eslint && echo '🎉 All test pass 🎉'"
   },
   "eslintConfig": {
     "extends": [
