@@ -5,6 +5,7 @@ import Display from './Display';
 import ButtonPanel from './ButtonPanel';
 import calculate from '../logic/calculate';
 import buttons from '../state/state';
+import styles from './styles.module.css';
 
 class App extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class App extends Component {
   render() {
     const { total, next, operation } = this.state;
     return (
-      <div>
+      <div className={styles.app}>
         <Display total={total} next={next} operation={operation} />
         <ButtonPanel data={this.state} buttons={buttons} clickHandler={this.handleClick} />
       </div>
