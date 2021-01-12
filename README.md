@@ -7,6 +7,9 @@ This project is a calculator, developed using React.
 - React
 - VScode
 
+## Screen-shots:
+<img src="assets/img/calc.png">
+
 ## Live-Demo
 
 [Calc-App](https://calc-lamia-sristy.herokuapp.com/)
