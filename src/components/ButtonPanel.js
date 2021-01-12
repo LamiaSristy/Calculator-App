@@ -1,24 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Button from './Button';
-// import styles from './styles.module.css';
 
-const ButtonPanel = ({ buttons, clickHandler }) => (
-  <div>
-    {buttons.map((row, i) => (
-      <div key={`row${buttons[i][0]}`}>
-        {row.map(name => (
-          <Button
-            name={name}
-            clickHandler={buttonName => clickHandler(buttonName)}
-            key={name}
-          />
-        ))}
-      </div>
-    ))}
-  </div>
-);
+const ButtonPanel = ({ buttons, clickHandler }) => {
+  const divList = [];
+  buttons.forEach(row => {
+    const list = [];
+    row.forEach(button => {
+      list.push(
+        <Button
+          name={button}
+          clickHandler={buttonName => clickHandler(buttonName)}
+          key={button}
+        />,
+      );
+    });
+
+    divList.push(
+      <div key={`row${row[0]}`}>{list}</div>,
+    );
+  });
+
+  return (
+    <div>
+      {divList}
+    </div>
+  );
+};
 
 ButtonPanel.propTypes = {
   clickHandler: PropTypes.func.isRequired,
