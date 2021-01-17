@@ -1,37 +1,31 @@
 /* eslint-disable no-unused-vars */
 import '../App.css';
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Display from './Display';
 import ButtonPanel from './ButtonPanel';
 import calculate from '../logic/calculate';
 import buttons from '../state/state';
 import styles from './styles.module.css';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+const App = () => {
+  const [total, setTotal] = useState(null);
+  const [next, setNext] = useState(null);
+  const [operation, setOperation] = useState(null);
 
-    this.state = {
-      total: null,
-      next: null,
-      operation: null,
-    };
-  }
+  const handleClick = buttonName => {
+    const result = calculate({ total, next, operation }, buttonName);
 
-  handleClick = buttonName => {
-    const newState = calculate(this.state, buttonName);
-    this.setState(newState);
+    setTotal(result.total);
+    setNext(result.next);
+    setOperation(result.operation);
   };
 
-  render() {
-    const { total, next, operation } = this.state;
-    return (
-      <div className={styles.app}>
-        <Display total={total} next={next} operation={operation} />
-        <ButtonPanel data={this.state} buttons={buttons} clickHandler={this.handleClick} />
-      </div>
-    );
-  }
-}
+  return (
+    <div className={styles.app}>
+      <Display total={total} next={next} operation={operation} />
+      <ButtonPanel buttons={buttons} clickHandler={handleClick} />
+    </div>
+  );
+};
 
 export default App;
